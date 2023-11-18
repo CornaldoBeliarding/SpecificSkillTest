@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react'
+import { Container } from 'react-bootstrap'
+import MostStock from './components/mostStock/App'
+import LowestStock from './components/lowestStock/App'
+import DataProduct from './components/dataProduct/App'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export default function App() {
 
-export default App;
+  useEffect(() => {
+    document.title = "Data Product"
+  })
+
+  return (
+    <Container> 
+      {/* Start Data Product With the Most Stok */}
+      <div className="mt-3">
+        <MostStock />
+      </div>
+      {/* End Data Product With the Most Stok */}
+      
+      {/* Start Data Product With the Lowes Stok */}
+      <div className="mt-5">        
+        <LowestStock />
+      </div>
+      {/* End Data Product With the Lowes Stok */}
+
+      {/* Start Data Product */}
+      <div className="mt-5">
+        <DataProduct />
+      </div>
+      {/* End Data Product */}
+    </Container>
+  )
+}
